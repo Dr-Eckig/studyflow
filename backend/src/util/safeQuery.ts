@@ -64,6 +64,11 @@ export async function safeQuery<T>(
     const camelized = keysToCamel<T[]>(result.rows);
     return { status: 200, data: camelized };
   } catch (err: any) {
+    console.error(
+      `[Database] Query failed (${err?.code ?? "unknown"}): ${
+        err?.message ?? "Database query failed"
+      }`
+    );
     return {
       status: 500,
       message: err.message || "Database query failed",
@@ -97,6 +102,11 @@ export async function safeQuerySingleObject<T>(
     const camelized = keysToCamel<T>(result.rows[0]);
     return { status: 200, data: camelized };
   } catch (err: any) {
+    console.error(
+      `[Database] Query failed (${err?.code ?? "unknown"}): ${
+        err?.message ?? "Database query failed"
+      }`
+    );
     return {
       status: 500,
       message: err.message || "Database query failed",
@@ -124,6 +134,11 @@ export async function safeFunctionCall<T>(
     );
     return result.rows[0].result;
   } catch (err: any) {
+    console.error(
+      `[Database] Function call failed (${err?.code ?? "unknown"}): ${
+        err?.message ?? "Database query failed"
+      }`
+    );
     return {
       status: 500,
       message: err.message || "Database query failed",

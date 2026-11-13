@@ -1,5 +1,5 @@
 {
-  "apiRoot": "http://localhost:4000",
+  "apiRoot": "/api",
   "restPaths": {
     "users": "/api/user",
     "auth": "/api/auth",

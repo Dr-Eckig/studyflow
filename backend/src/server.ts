@@ -32,22 +32,22 @@ c_app.use(fileUpload());
 c_app.use(morgan("combined"));
 
 // For testing purposes: a UUID endpoint
-c_app.get("/uuid", (_req: Request, res: Response, _next: NextFunction) => {
+c_app.get("/api/uuid", (_req: Request, res: Response, _next: NextFunction) => {
   res.status(200).json(c_uuid());
 });
 
 // Middleware to parse JSON bodies
 c_app.use(express.json());
 
-// Register routes
-c_app.use("", Auth);
-c_app.use("/user", Users);
-c_app.use("/exam", Exams);
-c_app.use("/grouped-task", GroupedTask);
-c_app.use("/overview", Overview);
-c_app.use("/task", Tasks);
-c_app.use("/statistic", Statistics);
-c_app.use("/i18n", Languages);
+// Register routes under the same /api prefix used by the frontend and Vercel.
+c_app.use("/api", Auth);
+c_app.use("/api/user", Users);
+c_app.use("/api/exam", Exams);
+c_app.use("/api/grouped-task", GroupedTask);
+c_app.use("/api/overview", Overview);
+c_app.use("/api/task", Tasks);
+c_app.use("/api/statistic", Statistics);
+c_app.use("/api/i18n", Languages);
 // Error handling middleware for JSON schema validation errors
 
 c_app.use(

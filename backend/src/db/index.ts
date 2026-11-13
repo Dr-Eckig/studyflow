@@ -12,19 +12,26 @@
 import pg, { PoolClient } from "pg";
 
 const {
+    DATABASE_URL,
+    NEON_DATABASE_URL,
     PG_HOST = "localhost",
     PG_USER = "studyuser",
     PG_PASSWORD = "studypass",
     PG_DATABASE = "studyflow",
     PG_PORT = "5432",
   } = process.env,
-  c_pool = new pg.Pool({
-    host: PG_HOST,
-    user: PG_USER,
-    password: PG_PASSWORD,
-    database: PG_DATABASE,
-    port: parseInt(PG_PORT, 10),
-  }),
+  connectionString = NEON_DATABASE_URL || DATABASE_URL,
+  c_pool = new pg.Pool(
+    connectionString
+      ? { connectionString }
+      : {
+          host: PG_HOST,
+          user: PG_USER,
+          password: PG_PASSWORD,
+          database: PG_DATABASE,
+          port: parseInt(PG_PORT, 10),
+        }
+  ),
   query = async (p_sql: string, p_params?: any[]) =>
     await c_pool.query(p_sql, p_params),
   transaction = async (
@@ -42,5 +49,15 @@ const {
       c_client.release();
     }
   };
+
+console.info(
+  `[Database] Using ${
+    NEON_DATABASE_URL
+      ? "NEON_DATABASE_URL"
+      : DATABASE_URL
+        ? "DATABASE_URL"
+        : "individual PG_* variables"
+  }`
+);
 
 export { query, transaction };

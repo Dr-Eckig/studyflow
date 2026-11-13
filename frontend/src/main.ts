@@ -16,7 +16,7 @@ interface Config {
 }
 
 const dummyConfig: Config = {
-  apiRoot: 'http://localhost:4000/api',
+  apiRoot: '/api',
   languages: ['en', 'de'],
   nextLanguage: { en: 'de', de: 'en' },
 }
