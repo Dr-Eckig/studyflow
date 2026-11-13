@@ -50,14 +50,4 @@ const {
     }
   };
 
-console.info(
-  `[Database] Using ${
-    NEON_DATABASE_URL
-      ? "NEON_DATABASE_URL"
-      : DATABASE_URL
-        ? "DATABASE_URL"
-        : "individual PG_* variables"
-  }`
-);
-
 export { query, transaction };

@@ -7,7 +7,6 @@
 import express, { Request, Response, NextFunction } from "express";
 import fileUpload from "express-fileupload";
 import morgan from "morgan";
-import * as uuid from "uuid";
 import { Auth } from "./routes/auth.js";
 import { Users } from "./routes/user.js";
 import { Exams } from "./routes/exam.js";
@@ -24,17 +23,11 @@ dotenv.config();
 const PORT = Number(process.env.PORT) || 4000;
 const SERVER = process.env.SERVER || `http://localhost:${PORT}`;
 const c_app = express();
-const c_uuid = uuid.v4;
 
 // Middleware for file uploads
 c_app.use(fileUpload());
 // Middleware for logging HTTP requests
 c_app.use(morgan("combined"));
-
-// For testing purposes: a UUID endpoint
-c_app.get("/api/uuid", (_req: Request, res: Response, _next: NextFunction) => {
-  res.status(200).json(c_uuid());
-});
 
 // Middleware to parse JSON bodies
 c_app.use(express.json());
