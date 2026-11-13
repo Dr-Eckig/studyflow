@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router'
 import Loading from './component/Loading.vue'
+import Button from './component/Button.vue'
 import Sidebar from './component/Sidebar.vue'
 import Toolbar from './component/Toolbar.vue'
 import BottomNavigation from './component/BottomNavigation.vue'
@@ -31,9 +32,9 @@ const isLoggedIn = computed(() => {
 
 <template>
   <v-app>
-    <div v-if="initializationError" role="alert" class="center">
+    <div v-if="initializationError" role="alert" class="initialization-error center">
       <p>Die Anwendung konnte nicht geladen werden. Bitte versuche es erneut.</p>
-      <button type="button" @click="initialize">Erneut versuchen</button>
+      <Button label="Erneut versuchen" color="primary" @click="initialize" />
     </div>
     <Loading v-else-if="!initializer.isInitialized" />
 
@@ -52,4 +53,11 @@ const isLoggedIn = computed(() => {
 
 <style>
 @import 'css/body.css';
+
+.initialization-error {
+  min-height: 100dvh;
+  width: 100%;
+  gap: 1rem;
+  padding: 1rem;
+}
 </style>
