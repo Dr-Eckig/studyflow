@@ -36,6 +36,7 @@ const migrations = [
   "31_i18n_data_de.sql",
   "31_i18n_data_en.sql",
   "32_first_deadline_hint.sql",
+  "33_i18n_fixes.sql",
 ];
 
 const pool = new pg.Pool({ connectionString });
