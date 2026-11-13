@@ -19,7 +19,6 @@ export default defineConfig(({ mode }) => {
         '/api': {
           target: env.FRONTEND_BACKEND_HOST || 'http://localhost:4000',
           changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api/, ''),
         },
       },
     },

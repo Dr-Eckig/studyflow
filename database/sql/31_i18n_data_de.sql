@@ -151,6 +151,7 @@ VALUES
 ('de', 'missing_date', 'Bitte wählen Sie ein Datum'),
 ('de', 'error_exam_update', 'Fehler beim updaten der Exam'),
 ('de', 'error_exam_create', 'Fehler beim erstellen der Exam'),
+('de', 'error_exam_delete', 'Fehler beim Löschen des Termins'),
 ('de', 'exam_saved', 'Exam gespeichert!'),
 ('de', 'exam_deleted', 'Exam gelöscht'),
 ('de', 'error_past_date', 'Datum liegt in der Vergangenheit'),

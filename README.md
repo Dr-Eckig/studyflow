@@ -58,6 +58,7 @@ The username and password for it is _postgres_.
 To start the frontend in developer mode, use the following commands:
 
 ```bash
+cd ./frontend
 npm install
 npm run dev
 ```
