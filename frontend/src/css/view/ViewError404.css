@@ -1,0 +1,29 @@
+@import 'View.css';
+
+.error-container {
+  padding: 1rem;
+}
+
+.error-container-margin {
+  margin-right: 250px;
+}
+
+.sheet {
+  padding: 3rem;
+}
+
+.error-code {
+  font-size: 6rem;
+  color: rgb(var(--v-theme-error));
+}
+
+.error-message {
+  font-size: 2rem;
+  color: rgb(var(--v-theme-primary));
+  margin-bottom: 0.5rem;
+}
+
+.error-description {
+  color: rgb(var(--v-theme-secondary));
+  margin-bottom: 2rem;
+}

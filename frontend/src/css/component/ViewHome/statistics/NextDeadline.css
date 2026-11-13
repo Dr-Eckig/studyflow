@@ -1,0 +1,32 @@
+@import './Statistics.css';
+
+.exam-container {
+  flex-direction: column;
+  gap: 12px;
+  min-height: 160px;
+  text-align: center;
+}
+
+.exam-card {
+  background: rgba(var(--v-theme-success), 0.1);
+}
+
+.exam-subject,
+.exam-date {
+  color: rgba(var(--v-theme-success), 1);
+}
+
+.exam-subject {
+  font-size: 1.25rem;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.exam-date {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}

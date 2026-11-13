@@ -1,0 +1,17 @@
+@import 'component.css';
+
+/* Used ChatGPT to force chip content to ellipsis */
+.chip {
+  max-width: 100% !important;
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+.chip :deep(.v-chip__content) {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+  max-width: 100% !important;
+  display: block !important;
+}

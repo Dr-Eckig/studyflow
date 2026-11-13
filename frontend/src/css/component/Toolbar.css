@@ -1,0 +1,41 @@
+@import 'component.css';
+
+.toolbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  padding: 8px 16px;
+  width: 100%;
+  box-shadow: 0 2px 4px rgb(var(--v-theme-shadow));
+  border-bottom: 1px solid rgb(var(--v-theme-border));
+  background-color: rgb(var(--v-theme-background));
+  z-index: 4;
+}
+
+.toolbar-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.language-switcher {
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* Optimization for Desktop */
+@media (min-width: 1024px) {
+  .toolbar {
+    justify-content: end;
+  }
+}
+
+@media (max-width: 1023px) {
+  .toolbar {
+    justify-content: space-between;
+  }
+}

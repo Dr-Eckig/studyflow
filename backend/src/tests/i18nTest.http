@@ -1,0 +1,10 @@
+@host = http://localhost:4000
+
+###
+GET {{host}}/i18n 
+
+###
+GET {{host}}/i18n/en 
+
+###
+GET {{host}}/i18n/de 

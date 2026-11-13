@@ -1,0 +1,44 @@
+@host = http://localhost:4000
+
+###
+# @name login
+POST {{host}}/login
+content-type: application/json
+
+{
+  "email": "testuser@example.com",
+  "password": "hello123"
+}
+
+###
+@authToken = {{login.response.headers.Authorization}}
+
+###
+GET {{host}}/task?start=2025-07-07&end=2025-07-13
+authorization: {{authToken}}
+
+###
+GET {{host}}/statistic/weekly
+authorization: {{authToken}}
+
+###
+GET {{host}}/exam
+authorization: {{authToken}}
+
+###
+GET {{host}}/statistic/exam-overview
+authorization: {{authToken}}
+
+###
+GET {{host}}/statistic/streak
+authorization: {{authToken}}
+
+###
+GET {{host}}/overview
+authorization: {{authToken}}
+
+###
+GET {{host}}/grouped-task
+authorization: {{authToken}}
+
+

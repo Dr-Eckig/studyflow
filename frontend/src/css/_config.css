@@ -1,0 +1,82 @@
+/* Custom Scrollbar */
+/* https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp */
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background-color: rgba(var(--v-theme-secondary), 0.5);
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(var(--v-theme-secondary));
+}
+
+/* Colors */
+.red {
+  /* background-color: #d56d7b; */
+  background-color: #f94c4a;
+  color: #fff5f7;
+}
+
+.blue {
+  /* background-color: #7892cd; */
+  background-color: #2186c3;
+  color: #eaf0ff;
+}
+
+.green {
+  /* background-color: #78bca8; */
+  background-color: #21d87d;
+  color: #f0fff9;
+}
+
+.yellow {
+  /* background-color: #ddba77; */
+  background-color: #fcdb58;
+  color: #4a3b1e;
+}
+
+.violet {
+  /* background-color: #967bc7; */
+  background-color: #9c79cd;
+  color: #f5f0ff;
+}
+
+.orange {
+  /* background-color: #f68d73; */
+  background-color: #ff7b40;
+  color: #fff2ec;
+}
+
+.brown {
+  /* background-color: #987279; */
+  background-color: #805d4e;
+  color: #f9f4f4;
+}
+
+.white {
+  /* background-color: #d3c3e2; */
+  background-color: #ffffff;
+  border: 1px solid rgb(var(--v-theme-border));
+  color: #443f4d;
+}
+
+.black {
+  /* background-color: #645c6b; */
+  background-color: #212121;
+  border: 1px solid rgb(var(--v-theme-border));
+  color: #f3f0f8;
+}

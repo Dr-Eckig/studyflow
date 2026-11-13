@@ -1,0 +1,57 @@
+@import './Calendar.css';
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+/* Day-Button */
+.date-btn {
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.date-btn:hover {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.date-btn.today {
+  background-color: #f0f0f0;
+  color: #000;
+}
+
+.v-theme--dark .date-btn.today {
+  border: 1px solid #ffffff;
+}
+
+/* Dots */
+.dot-overlay {
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1px;
+}
+
+.dot-icon {
+  font-size: 8px;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .calendar-grid {
+    gap: 1px;
+  }
+}

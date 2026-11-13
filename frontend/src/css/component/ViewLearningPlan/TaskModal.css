@@ -1,0 +1,13 @@
+@import '@/css/component/component.css';
+
+.modal-date {
+  color: rgb(var(--v-theme-secondary));
+  margin-bottom: 20px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+}

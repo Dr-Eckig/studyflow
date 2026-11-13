@@ -1,0 +1,109 @@
+@host = http://localhost:4000
+
+###
+# @name login
+POST {{host}}/login
+content-type: application/json
+
+{
+  "email": "testuser@example.com",
+  "password": "hello123"
+}
+
+###
+# @name login2
+POST {{host}}/login
+content-type: application/json
+
+{
+  "email":    "someuser@test.com",
+  "password": "test456"
+}
+###
+@authToken = {{login.response.headers.Authorization}}
+@userId = {{login.response.body.userId}}
+
+@authToken2 = {{login2.response.headers.Authorization}}
+@userId2 = {{login2.response.body.userId}}
+
+###
+GET {{host}}/exam
+authorization: {{authToken}}
+
+###
+GET {{host}}/exam?start=2025-07-18&end=2025-07-20
+authorization: {{authToken}}
+
+###
+# @name exam
+POST {{host}}/exam
+authorization: {{authToken}}
+Content-Type: application/json
+
+{
+  "title": "Mathematik",
+  "deadline": "2025-08-15",
+  "tagColor": "red",
+  "note": "Eine Klausur"
+}
+
+###
+@examId = {{exam.response.body.id}}
+
+###
+GET {{host}}/exam
+authorization: {{authToken}}
+
+###
+GET {{host}}/exam/{{examId}}
+authorization: {{authToken}}
+
+### -> should fail
+GET {{host}}/exam/{{examId}}
+authorization: {{authToken2}}
+
+###
+PUT {{host}}/exam/{{examId}}
+authorization: {{authToken}}
+Content-Type: application/json
+
+{
+  "title": "Mathe II",
+  "deadline": "2025-07-23",
+  "tagColor": "red"
+}
+
+###
+GET {{host}}/exam/{{examId}}
+authorization: {{authToken}}
+
+###
+PATCH {{host}}/exam/{{examId}}
+authorization: {{authToken}}
+Content-Type: application/json
+
+{
+  "tagColor": "purple"
+}
+
+###
+PATCH {{host}}/exam/{{examId}}
+authorization: {{authToken}}
+Content-Type: application/json
+
+{
+  "tagColor": "blue"
+}
+
+###
+GET {{host}}/exam/{{examId}}
+authorization: {{authToken}}
+
+###
+DELETE {{host}}/exam/{{examId}}
+authorization: {{authToken}}
+
+###
+GET {{host}}/exam/{{examId}}
+authorization: {{authToken}}
+

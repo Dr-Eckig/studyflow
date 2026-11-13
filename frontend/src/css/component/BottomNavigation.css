@@ -1,0 +1,42 @@
+@import 'component.css';
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  box-shadow: 0 2px 4px rgb(var(--v-theme-shadow));
+  background-color: rgb(var(--v-theme-background));
+  border-top: 1px solid rgb(var(--v-theme-border));
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.nav-item {
+  flex: 1;
+  text-decoration: none;
+  transition:
+    color 0.2s,
+    background-color 0.2s;
+  height: 100%;
+  color: var(--text-color);
+}
+
+.nav-item span {
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.nav-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+.nav-item-active {
+  color: rgb(var(--v-theme-primary));
+}

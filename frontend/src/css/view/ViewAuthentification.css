@@ -1,0 +1,28 @@
+@import 'View.css';
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 30px;
+}
+
+.sheet {
+  padding: 30px;
+  width: 100%;
+  max-width: 400px;
+}
+
+.register-link {
+  padding-top: 12px;
+  text-align: center;
+}
+
+/* Desktop */
+@media (min-width: 1024px) {
+  .login-container {
+    margin-right: 250px;
+  }
+}

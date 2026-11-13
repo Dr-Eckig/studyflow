@@ -1,0 +1,101 @@
+@host = http://localhost:4000
+
+###
+POST {{host}}/register
+content-type: application/json
+
+{
+  "email":    "tester2@tha.de",
+  "password": "topsecret"
+}
+
+###
+# @name login2
+POST {{host}}/login
+content-type: application/json
+
+{
+  "email":    "tester2@tha.de",
+  "password": "topsecret"
+}
+
+###
+# @name login
+POST {{host}}/login
+content-type: application/json
+
+{
+  "email": "testuser@example.com",
+  "password": "hello123"
+}
+
+### -> should fail
+POST {{host}}/login
+content-type: application/json
+
+{
+  "email":    "tester12@tha.de",
+  "password": "topsecret"
+}
+
+
+###
+@authToken = {{login.response.headers.Authorization}}
+@userId = {{login.response.body.userId}}
+
+@authToken2 = {{login2.response.headers.Authorization}}
+@userId2 = {{login2.response.body.userId}}
+
+### -> should fail
+GET {{host}}/user/{{userId}}
+authorization: {{authToken2}}
+
+###
+GET {{host}}/user/{{userId}}
+Authorization: {{authToken}}
+
+###
+GET {{host}}/user/{{userId2}}
+Authorization: {{authToken2}}
+
+###
+PUT {{host}}/user/{{userId2}}
+authorization: {{authToken2}}
+content-type: application/json
+
+{ 
+  "email":    "newtester2@tha.de",
+  "darkMode": true,
+  "language": "en"
+}
+
+###
+GET {{host}}/user/{{userId2}}
+Authorization: {{authToken2}}
+
+### -> should fail
+PATCH {{host}}/user/{{userId2}}
+authorization: {{authToken2}}
+content-type: application/json
+
+{ 
+  "email": "testuser@example.com"
+}
+
+### -> should fail
+PATCH {{host}}/user/{{userId2}}
+authorization: {{authToken}}
+content-type: application/json
+
+{ 
+  "email": "newuser@example.com"
+}
+
+###
+DELETE {{host}}/user/{{userId2}}
+authorization: {{authToken2}}
+
+###
+GET {{host}}/user/{{userId2}}
+Authorization: {{authToken2}}
+

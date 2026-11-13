@@ -1,0 +1,64 @@
+@import '@/css/component/component.css';
+
+.day-column {
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+}
+
+.sheet {
+  padding: 0;
+}
+
+.day-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid rgb(var(--v-theme-border));
+}
+
+.date-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-header h3 {
+  margin: 0;
+  font-size: 1rem;
+  color: rgb(var(--v-theme-secondary));
+}
+
+.date-number {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.today .day-header {
+  background-color: rgba(var(--v-theme-primary), 0.2);
+}
+
+.day-column.past {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.v-theme--dark .day-column.past {
+  opacity: 0.4;
+}
+
+/* Exam Chips */
+.exam-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  padding: 1rem 0.8rem;
+  /* border-bottom: 1px solid rgb(var(--v-theme-border)); */
+}
+
+.exam-chip {
+  max-width: 100%;
+}

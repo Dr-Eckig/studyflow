@@ -1,0 +1,15 @@
+@import './Statistics.css';
+
+.progress-card {
+  background: rgba(var(--v-theme-primary), 0.1);
+}
+
+.progress-title {
+  padding-top: 16px;
+}
+
+.progress-text {
+  font-size: 1.5rem;
+  color: rgba(var(--v-theme-primary), 1);
+  letter-spacing: -0.05em;
+}

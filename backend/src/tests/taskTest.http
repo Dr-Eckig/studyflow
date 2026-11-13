@@ -1,0 +1,129 @@
+@host = http://localhost:4000
+
+###
+# @name login
+POST {{host}}/login
+content-type: application/json
+
+{
+  "email": "testuser@example.com",
+  "password": "hello123"
+}
+
+###
+# @name login2
+POST {{host}}/login
+content-type: application/json
+
+{
+  "email":    "someuser@test.com",
+  "password": "test456"
+}
+###
+@authToken = {{login.response.headers.Authorization}}
+@userId = {{login.response.body.userId}}
+
+@authToken2 = {{login2.response.headers.Authorization}}
+@userId2 = {{login2.response.body.userId}}
+
+###
+GET {{host}}/task
+authorization: {{authToken}}
+
+###
+GET {{host}}/task?start=2025-07-18&end=2025-07-19
+authorization: {{authToken}}
+
+
+### -> should fail, exam does not exist
+POST {{host}}/task
+authorization: {{authToken2}}
+Content-Type: application/json
+
+{
+  "examId": "d4e99db9-3595-4d40-ac3c-f72712155794",
+  "name": "Lernblatt 1",
+  "completed": false,
+  "date": "2025-07-21"
+}
+
+### 
+# @name exam
+POST {{host}}/exam
+authorization: {{authToken2}}
+Content-Type: application/json
+
+{
+  "userId": "{{userId}}",
+  "title": "Mathematik",
+  "deadline": "2025-07-21",
+  "tagColor": "red"
+}
+
+###
+@examId = {{exam.response.body.id}}
+
+###
+# @name task
+POST {{host}}/task 
+authorization: {{authToken2}}
+Content-Type: application/json
+
+{
+  "examId": "{{examId}}",
+  "name": "Lernblatt 1",
+  "completed": false,
+  "date": "2025-07-20"
+}
+
+###
+@taskId = {{task.response.body.id}}
+
+###
+GET {{host}}/task/{{taskId}}
+authorization: {{authToken2}}
+
+### -> should fail
+GET {{host}}/task/{{taskId}}
+authorization: {{authToken}}
+
+###
+PUT {{host}}/task/{{taskId}}
+authorization: {{authToken2}}
+Content-Type: application/json
+
+{
+  "examId": "{{examId}}",
+  "name": "Lernblatt 1 - Wiederholung",
+  "completed": true,
+  "date": "2025-07-20"
+}
+
+###
+GET {{host}}/task/{{taskId}}
+authorization: {{authToken2}}
+
+###
+PATCH {{host}}/task/{{taskId}}
+authorization: {{authToken2}}
+Content-Type: application/json
+
+{
+  "completed": false
+}
+
+###
+GET {{host}}/task/{{taskId}}
+authorization: {{authToken2}}
+
+###
+DELETE {{host}}/task/{{taskId}}
+authorization: {{authToken2}}
+
+###
+DELETE {{host}}/exam/{{examId}}
+authorization: {{authToken2}}
+
+###
+GET {{host}}/task/{{taskId}}
+authorization: {{authToken2}}

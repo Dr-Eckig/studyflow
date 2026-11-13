@@ -1,0 +1,47 @@
+@import '@/css/component/component.css';
+
+.sheet {
+  overflow: hidden;
+  max-width: 50%;
+}
+
+@media (max-width: 768px) {
+  .sheet {
+    max-width: 100%;
+  }
+}
+
+.calendar {
+  width: 300px;
+}
+
+.calendar-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+}
+
+.legend-items {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.legend-titles {
+  margin: 0;
+  color: rgb(var(--v-theme-secondary));
+  font-size: 0.9em;
+}
+
+@media (max-width: 1560px) {
+  .calendar-container {
+    overflow: hidden;
+    flex-wrap: wrap;
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "apiRoot": "http://localhost:4000",
+  "restPaths": {
+    "users": "/api/user",
+    "auth": "/api/auth",
+    "exams": "/api/exam",
+    "groupedTasks": "/api/grouped-task",
+    "overview": "/api/overview",
+    "images": "/api/images",
+    "statistics": "/api/statistic",
+    "tasks": "/api/task",
+    "register": "/api/register",
+    "login": "/api/login",
+    "i18n": "/api/i18n"
+  },
+  "default": {
+    "exam": {
+      "id": null,
+      "userId": null,
+      "title": "",
+      "date": null,
+      "color": ""
+    },
+    "user": {
+      "id": "",
+      "email": "",
+      "password": ""
+    },
+    "weeklyStatistic": {
+      "userId": "",
+      "email": "",
+      "weeklyTasks": 0,
+      "weeklyTasksCompleted": 0
+    },
+    "examStatistic": {
+      "userId": "",
+      "examName": "",
+      "daysLeft": 0,
+      "completedTaskNames": 0,
+      "openTaskNames": 0,
+      "percentage": 0
+    },
+    "streakStatistic": {
+      "userId": "",
+      "currentStreak": 0
+    },
+    "session": {
+      "token": null,
+      "time": null,
+      "id": null
+    }
+  }
+}

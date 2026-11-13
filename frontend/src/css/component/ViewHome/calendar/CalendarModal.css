@@ -1,0 +1,45 @@
+@import './Calendar.css';
+
+.dot-icon {
+  margin-right: 8px;
+}
+
+.save-cancel-buttons {
+  display: flex;
+  justify-content: end;
+  gap: 8px;
+}
+
+.dot-summary {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.exam-item {
+  padding: 12px;
+  border: 1px solid rgb(var(--v-theme-border));
+  border-radius: 8px;
+  position: relative;
+}
+
+.exam-item .dot-icon {
+  margin-right: 8px;
+}
+
+.exam-item .description {
+  margin: 8px 0 0 0px;
+  color: rgb(var(--v-theme-secondary));
+  font-size: 0.9em;
+}
+
+.exam-item .actions {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  gap: 4px;
+}

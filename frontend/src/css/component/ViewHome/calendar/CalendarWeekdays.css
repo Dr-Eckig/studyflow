@@ -1,0 +1,21 @@
+@import 'Calendar.css';
+
+.calendar-weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  margin-top: 0.5rem;
+  gap: 4px;
+}
+
+.calendar-weekday {
+  width: 40px;
+  text-align: center;
+  font-size: 0.75rem;
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .calendar-weekdays {
+    gap: 1px;
+  }
+}

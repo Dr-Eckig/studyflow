@@ -1,0 +1,5 @@
+@import '@/css/component/component.css';
+
+.text-red {
+  color: rgb(var(--v-theme-error));
+}

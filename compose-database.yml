@@ -1,0 +1,32 @@
+services:
+  studyflow_database:
+    container_name: ${IMAGE_TAG}_database
+    image:          ${IMAGE_TAG}_database
+    build:
+      context: ./database
+      args:
+        POSTGRES_USER:     ${POSTGRES_USER}
+        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        POSTGRES_DATABASE: ${POSTGRES_DATABASE}
+        APP_USER:          ${APP_USER}
+        APP_PASSWORD:      ${APP_PASSWORD}
+        APP_DATABASE:      ${APP_DATABASE}
+        WEB_USER:          ${WEB_USER}
+        WEB_PASSWORD:      ${WEB_PASSWORD}
+    ports:
+      - ${DATABASE_PORT}:${DATABASE_CONTAINER_PORT}
+    depends_on:
+      - ${IMAGE_TAG}_adminer
+
+  studyflow_adminer:
+    container_name: ${IMAGE_TAG}_adminer
+    image:          ${IMAGE_TAG}_adminer
+    build:
+      context: ./adminer
+      args:
+        ADMINER_DEFAULT_DB_DRIVER: pgsql
+        ADMINER_DEFAULT_DB_HOST:   ${IMAGE_TAG}_database
+        ADMINER_DESIGN:            hever
+    ports:
+      - ${ADMINER_PORT}:${ADMINER_CONTAINER_PORT}
+

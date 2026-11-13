@@ -1,0 +1,69 @@
+name: studyflow_development
+
+services:
+  studyflow_frontend:
+    container_name: ${IMAGE_TAG}_frontend
+    image:          ${IMAGE_TAG}_frontend
+    build:
+      context: ./frontend
+      args:
+        FRONTEND_PORT:         ${FRONTEND_PORT}
+        FRONTEND_BACKEND_HOST: ${FRONTEND_BACKEND_HOST_DEVELOPMENT}
+    ports:
+      - ${FRONTEND_PORT}:${FRONTEND_CONTAINER_PORT}
+    volumes:
+      - ./frontend/src:/frontend/src
+      - ./frontend/public:/frontend/public
+    depends_on:
+      - ${IMAGE_TAG}_backend
+
+  studyflow_backend:
+    container_name: ${IMAGE_TAG}_backend
+    image:          ${IMAGE_TAG}_backend
+    build:
+      context: ./backend
+      args:
+        PORT:        ${BACKEND_CONTAINER_PORT}
+        MODE:        development
+        PG_USER:     ${WEB_USER}
+        PG_PASSWORD: ${WEB_PASSWORD}
+        PG_DATABASE: ${APP_DATABASE}
+        PG_HOST:     ${IMAGE_TAG}_database
+        PG_PORT:     ${DATABASE_PORT}
+    ports:
+      - ${BACKEND_PORT}:${BACKEND_CONTAINER_PORT}
+    volumes:
+      - ./backend/src:/backend/src
+    depends_on:
+      - ${IMAGE_TAG}_database
+
+  studyflow_database:
+    container_name: ${IMAGE_TAG}_database
+    image:          ${IMAGE_TAG}_database
+    build:
+      context: ./database
+      args:
+        POSTGRES_USER:     ${POSTGRES_USER}
+        POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+        POSTGRES_DATABASE: ${POSTGRES_DATABASE}
+        APP_USER:          ${APP_USER}
+        APP_PASSWORD:      ${APP_PASSWORD}
+        APP_DATABASE:      ${APP_DATABASE}
+        WEB_USER:          ${WEB_USER}
+        WEB_PASSWORD:      ${WEB_PASSWORD}
+    ports:
+      - ${DATABASE_PORT}:${DATABASE_CONTAINER_PORT}
+    depends_on:
+      - ${IMAGE_TAG}_adminer
+
+  studyflow_adminer:
+    container_name: ${IMAGE_TAG}_adminer
+    image:          ${IMAGE_TAG}_adminer
+    build:
+      context: ./adminer
+      args:
+        ADMINER_DEFAULT_DB_DRIVER: pgsql
+        ADMINER_DEFAULT_DB_HOST:   ${IMAGE_TAG}_database
+        ADMINER_DESIGN:            hever
+    ports:
+      - ${ADMINER_PORT}:${ADMINER_CONTAINER_PORT}

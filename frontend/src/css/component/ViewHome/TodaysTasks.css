@@ -1,0 +1,32 @@
+@import '@/css/component/component.css';
+
+.sheet {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.sheet-content {
+  justify-content: space-between;
+}
+
+.task-list {
+  list-style: none;
+  max-height: 100%;
+  overflow-y: auto;
+}
+
+.progress {
+  padding-top: 16px;
+  background-color: rgb(--var(--v-theme-background, #fff));
+}
+
+.progress-text {
+  font-size: 0.75rem;
+  margin-top: 8px;
+}
+
+.no-tasks {
+  height: 100%;
+  margin: 0;
+  color: rgb(var(--v-theme-secondary));
+}

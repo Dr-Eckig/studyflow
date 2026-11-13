@@ -1,0 +1,13 @@
+{
+  "name": "studyflow",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Studyplanner",
+  "main": "web/index.html",
+  "author": "Naqeebah Binti Mohd Zaini, Jessica Schach, Franka Marie Schmid",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.multimedia.hs-augsburg.de/naqeebah/studyflow"
+  }
+}
