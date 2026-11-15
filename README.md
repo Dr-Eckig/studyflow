@@ -1,4 +1,6 @@
-# StudyFlow is a study planner software by
+# StudyFlow
+
+A study planner developed by three students at Technische Hochschule Augsburg (THA).
 
 - IN6 [Naqeebah Binti Mohd Zaini](https://github.com/naqeebahzaini) (Database)
 - IN6 [Jessica Schach](https://github.com/Dr-Eckig) (Frontend)
@@ -9,6 +11,8 @@
 A live demo of StudyFlow is available at https://studyflow-red-two.vercel.app/login.
 
 Feel free to create an account and explore StudyFlow!
+
+If you'd prefer not to create an account, you can also explore the application's interface and its key features in our [documentation](https://github.com/Dr-Eckig/studyflow/blob/master/docs/StudyFlow.pdf).
 
 # Project Setup Guide
 
