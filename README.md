@@ -1,8 +1,14 @@
-# This is a study planner software by
+# StudyFlow is a study planner software by
 
 - IN6 [Naqeebah Binti Mohd Zaini](https://github.com/naqeebahzaini) (Database)
 - IN6 [Jessica Schach](https://github.com/Dr-Eckig) (Frontend)
 - IN6 [Franka Marie Schmid](https://github.com/schmifran) (Backend)
+
+## Demo
+
+A live demo of StudyFlow is available at https://studyflow-red-two.vercel.app/login.
+
+Feel free to create an account and explore StudyFlow!
 
 # Project Setup Guide
 
