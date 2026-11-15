@@ -1,8 +1,8 @@
 # This is a study planner software by
 
-- IN6 Naqeebah Binti Mohd Zaini
-- IN6 Jessica Schach
-- IN6 Franka Marie Schmid
+- IN6 [Naqeebah Binti Mohd Zaini](https://github.com/naqeebahzaini) (Database)
+- IN6 [Jessica Schach](https://github.com/Dr-Eckig) (Frontend)
+- IN6 [Franka Marie Schmid](https://github.com/schmifran) (Backend)
 
 # Project Setup Guide
 
